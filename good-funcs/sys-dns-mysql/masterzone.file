@@ -1,0 +1,7 @@
+zone "reps1" {
+        type master;
+        also-notify {172.16.100.10;};
+        allow-transfer { trusted-dns; };
+        allow-update { key ns1-ns2. ;};
+        file "reps2/master/reps1.zone";
+};

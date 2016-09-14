@@ -1,0 +1,6 @@
+
+# Download some video, by adding video url with the command.
+youtube-dl https://www.youtube.com/watch?v=UZW2hs-2OAI
+
+# To download a video list, copy all of the url in a text file and run following command
+youtube-dl -a <name_of_your_text_file.txt>

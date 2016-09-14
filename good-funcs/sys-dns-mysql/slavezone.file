@@ -1,0 +1,7 @@
+zone "reps1" {
+        type slave;
+        file "reps2/slave/reps1.zone";
+        masters {
+                172.16.100.10;
+        };
+};

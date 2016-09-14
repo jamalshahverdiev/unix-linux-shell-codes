@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+   ServerName {{ unix.com }}
+   ServerAlias www.{{ unix.com }}
+   CustomLog "/var/log/httpd/{{ unix.com }}_access.log" common
+   ErrorLog /var/log/httpd/{{ unix.com }}_error.log
+   DocumentRoot "/var/www/{{ unix.com }}_public_html"
+<Directory "/var/www/{{ unix.com }}_public_html"> 
+   AllowOverride All
+   Require all granted
+</Directory>
+</VirtualHost>

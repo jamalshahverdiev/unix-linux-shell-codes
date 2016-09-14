@@ -1,0 +1,28 @@
+$TTL 172800     ; 2 days
+reps1.        IN      SOA     ns1.reps1. root.reps1. (
+                                2015122801      ; Serial
+                                86400           ; Refresh
+                                7200            ; Retry
+                                604800          ; Expire
+                                172800          ; Minimum TTL
+                        )
+
+; DNS Servers
+                IN      NS      ns1.reps1.
+                IN      NS      ns2.reps1.
+
+; MX Records
+@               IN      MX 10   mail.reps1.
+@               IN      A       100.100.100.100
+
+; SRV
+_sip._tls.reps1.               IN      SRV     0       0       442     access.reps1.
+_sipfederationtls._tcp.reps1.  IN      SRV     0       0       5061    access.reps1.
+
+; Machine Names
+cloud           IN      A       100.20.10.20
+mail            IN      A       100.20.20.10
+ns1             IN      A       172.16.100.10
+ns2             IN      A       172.16.100.20
+; Aliases
+www             IN      CNAME   @
