@@ -26,10 +26,10 @@ zonecreateFunc () {
 if [[ $ftype == "FreeBSD" ]] && [[ $fvers == "10.3" ]]
 then
     echo "It is FreeBSD server."
-    zonecreateFunc "ntc.az" "/usr/local/etc/namedb"
+    zonecreateFunc "vuqar.az" "/usr/local/etc/namedb"
 elif [[ $ltype == "Linux" ]] && [[ $ctype == "CentOS" ]]
 then
     echo "It is CentOS server"
-    zonecreateFunc "ntc.az" "/etc/namedb"
+    zonecreateFunc "vuqar.az" "/etc/namedb"
 fi
 
