@@ -28,9 +28,9 @@ LOW_AD_DOMAIN=$(echo $AD_DOMAIN | tr '[:upper:]' '[:lower:]')
 LOW_AD_SVR=$(echo $AD_SVR | tr '[:upper:]' '[:lower:]')
 AD_DOM_DOTS=$(echo $AD_DOMAIN | grep "\." | wc -l)
 if [ "$AD_DOM_DOTS" -eq "0" ]; then
-  WRKGRP=$AD_DOMAIN
+    WRKGRP=$AD_DOMAIN
 else
-  WRKGRP=$(echo $AD_DOMAIN | awk -F'.' '{print $1}')
+    WRKGRP=$(echo $AD_DOMAIN | awk -F'.' '{print $1}')
 fi
 
 allargs="$#"
@@ -73,6 +73,7 @@ checkver () {
     if [ -f "/etc/redhat-release" ]
     then
         version=$(cat /etc/redhat-release | awk '{ print $(NF-1)}' | cut -f1 -d'.')
+
         if [ "$version" = "6" ]
         then
             echo "Red Hat version is $version" | tee -a ${LOG}
@@ -101,6 +102,7 @@ rpm_check () {
     do
         rpm -q $RPM > /dev/null
 #        echo $RPM
+        
         if [ $? -ne 0 ]
         then
             echo "${date} RPM $RPM is not installed." | tee -a ${LOG}
@@ -237,17 +239,17 @@ EOF
 
 # Function configuring samba file for RHEL6|7
 configure_samba () {
-  if [ -d $SMBCACHE ]; then
-    :
-  else
-    mkdir -p $SMBCACHE
-    chmod 0755 $SMBCACHE
-  fi
+    if [ -d $SMBCACHE ]; then
+        :
+    else
+        mkdir -p $SMBCACHE
+        chmod 0755 $SMBCACHE
+    fi
 
-  echo "Create SAMBA Configuration file ..."
-  if [ -f $SMBCONF ]; then
-    mv $SMBCONF $AD_SETUP_DIR/smb.conf.orig-$(date +%Y%m%d-%H%M%S)
-  fi
+    echo "Create SAMBA Configuration file ..."
+    if [ -f $SMBCONF ]; then
+        mv $SMBCONF $AD_SETUP_DIR/smb.conf.orig-$(date +%Y%m%d-%H%M%S)
+    fi
 
 cat <<EOS > $SMBCONF
 [global]
@@ -293,6 +295,7 @@ configure_pam_sles () {
         cp /etc/pam.d/${FILE} ${FILE}.$(date +%Y%m%d-%H%M%S)
     done
     pam-config -a --winbind --mkhomedir --mkhomedir-umask=0077
+    
     if [ $? != 0 ]; then
         echo "Error updating PAM configuration" | tee -a ${LOG}
     fi
@@ -302,7 +305,7 @@ configure_pam_sles () {
 configure_sssd () {
   echo "Create SSSD Configuration file ..."
   if [ -f $SSSDCONF ]; then
-    mv $SSSDCONF $AD_SETUP_DIR/sssd.conf.orig-$(date +%Y%m%d-%H%M%S)
+      mv $SSSDCONF $AD_SETUP_DIR/sssd.conf.orig-$(date +%Y%m%d-%H%M%S)
   fi
 
 cat <<EOS > $SSSDCONF
@@ -354,29 +357,28 @@ configure_nsswitch () {
 
 # Function configuring PAM files for RHEL6|7
 configure_pam () {
-  echo "Saving PAM configs ..."
-  cp -p $PAMCONF $AD_SETUP_DIR/system-auth-custom.orig-$(date +%Y%m%d-%H%M%S)
-  cp -p $PAMPWCONF $AD_SETUP_DIR/password-auth-custom.orig-$(date +%Y%m%d-%H%M%S)
+    echo "Saving PAM configs ..."
+    cp -p $PAMCONF $AD_SETUP_DIR/system-auth-custom.orig-$(date +%Y%m%d-%H%M%S)
+    cp -p $PAMPWCONF $AD_SETUP_DIR/password-auth-custom.orig-$(date +%Y%m%d-%H%M%S)
 
-  echo "Configure PAM setup to work with SSSD ..." 
-  sed -i -e '/auth        \[success=1/d' $PAMCONF
-  sed -i -e '/auth        requisite     pam_succeed/d' $PAMCONF
+    echo "Configure PAM setup to work with SSSD ..." 
+    sed -i -e '/auth        \[success=1/d' $PAMCONF
+    sed -i -e '/auth        requisite     pam_succeed/d' $PAMCONF
   
-  sed -i -e '/auth        required      pam_faillock.so/a\auth        sufficient    pam_unix.so nullok try_first_pass\nauth        requisite     pam_succeed_if.so uid >= 1000 quiet\nauth        sufficient    pam_sss.so use_first_pass' $PAMCONF
-  sed -i -e '/auth        sufficient    pam_faillock.so authsucc/a\auth        \[success=1 default=bad\]    pam_unix.so' $PAMCONF
-  sed -i -e '/account     sufficient    pam_succeed_if.so/a\account \[default=bad success=ok user_unknown=ignore\] pam_sss.so' $PAMCONF
-  sed -i -e '/password    sufficient    pam_unix.so/a\password    sufficient    pam_sss.so use_authtok' $PAMCONF
-  sed -i -e '/session     required      pam_limits.so/a\session     optional      pam_oddjob_mkhomedir.so skel=/etc/skel umask=0077' $PAMCONF
-  sed -i -e '/session     required      pam_unix.so/a\session     optional      pam_sss.so' $PAMCONF
+    sed -i -e '/auth        required      pam_faillock.so/a\auth        sufficient    pam_unix.so nullok try_first_pass\nauth        requisite     pam_succeed_if.so uid >= 1000 quiet\nauth        sufficient    pam_sss.so use_first_pass' $PAMCONF
+    sed -i -e '/auth        sufficient    pam_faillock.so authsucc/a\auth        \[success=1 default=bad\]    pam_unix.so' $PAMCONF
+    sed -i -e '/account     sufficient    pam_succeed_if.so/a\account \[default=bad success=ok user_unknown=ignore\] pam_sss.so' $PAMCONF
+    sed -i -e '/password    sufficient    pam_unix.so/a\password    sufficient    pam_sss.so use_authtok' $PAMCONF
+    sed -i -e '/session     required      pam_limits.so/a\session     optional      pam_oddjob_mkhomedir.so skel=/etc/skel umask=0077' $PAMCONF
+    sed -i -e '/session     required      pam_unix.so/a\session     optional      pam_sss.so' $PAMCONF
 
-  sed -i -e '/auth        \[success=1/d' $PAMPWCONF
-  sed -i -e '/auth        requisite     pam_succeed/d' $PAMPWCONF
+    sed -i -e '/auth        \[success=1/d' $PAMPWCONF
+    sed -i -e '/auth        requisite     pam_succeed/d' $PAMPWCONF
 
-  sed -i -e '/auth        required      pam_faillock.so/a\auth        sufficient    pam_unix.so nullok try_first_pass\nauth        requisite     pam_succeed_if.so uid >= 1000 quiet\nauth        sufficient    pam_sss.so use_first_pass' $PAMPWCONF
-  sed -i -e '/auth        sufficient    pam_faillock.so authsucc/a\auth        \[success=1 default=bad\]    pam_unix.so' $PAMPWCONF
-  sed -i -e '/session     required      pam_limits.so/a\session     optional      pam_oddjob_mkhomedir.so skel=/etc/skel umask=0077' $PAMPWCONF
-  sed -i -e '/session     required      pam_unix.so/a\session     optional      pam_sss.so' $PAMPWCONF
-
+    sed -i -e '/auth        required      pam_faillock.so/a\auth        sufficient    pam_unix.so nullok try_first_pass\nauth        requisite     pam_succeed_if.so uid >= 1000 quiet\nauth        sufficient    pam_sss.so use_first_pass' $PAMPWCONF
+    sed -i -e '/auth        sufficient    pam_faillock.so authsucc/a\auth        \[success=1 default=bad\]    pam_unix.so' $PAMPWCONF
+    sed -i -e '/session     required      pam_limits.so/a\session     optional      pam_oddjob_mkhomedir.so skel=/etc/skel umask=0077' $PAMPWCONF
+    sed -i -e '/session     required      pam_unix.so/a\session     optional      pam_sss.so' $PAMPWCONF
 }
 
 # Kerberos initialization for RHEL6|7 and SLES12
@@ -395,47 +397,48 @@ initialise_kerberos () {
 
 # Joining to the Domain Controller and create computer name in selected OU
 join_ad () {
-  echo " " | tee -a ${LOG}
-  echo "Attempting to join AD domain ..." | tee -a ${LOG}
-  echo "Trying to create computer in folder "$AD_FLDR | tee -a ${LOG}
-  # To trace: net ads join -k createcomputer="$AD_FLDR" -d 10 > join.log 2>&1
-  net ads join -k createcomputer="$AD_FLDR" 
-  rc2=$?
-  if [ "$rc2" -ne "0" ]; then
-    echo "## ERROR - net ads join process failed ... aborting" | tee -a ${LOG}
-    logger -p local2.crit -t AD_SETUP "Failed - Problem with net ads join" 
-    exit 1
-  fi
+    echo " " | tee -a ${LOG}
+    echo "Attempting to join AD domain ..." | tee -a ${LOG}
+    echo "Trying to create computer in folder "$AD_FLDR | tee -a ${LOG}
+    # To trace: net ads join -k createcomputer="$AD_FLDR" -d 10 > join.log 2>&1
+    net ads join -k createcomputer="$AD_FLDR" 
+    rc2=$?
+    
+    if [ "$rc2" -ne "0" ]; then
+        echo "## ERROR - net ads join process failed ... aborting" | tee -a ${LOG}
+        logger -p local2.crit -t AD_SETUP "Failed - Problem with net ads join" 
+        exit 1
+    fi
 
-  echo " " | tee -a ${LOG}
-  echo "Running test to see if join was correct" | tee -a ${LOG}
-  echo " " | tee -a ${LOG}
-  net ads testjoin
-  rc3=$?
-  if [ "$rc3" -ne "0" ]; then
-    echo "## ERROR - net ads testjoin process failed ... " | tee -a ${LOG}
-    logger -p local2.crit -t AD_SETUP "Failed - Problem with net ads testjoin"
-  fi
+    echo " " | tee -a ${LOG}
+    echo "Running test to see if join was correct" | tee -a ${LOG}
+    echo " " | tee -a ${LOG}
+    net ads testjoin
+    rc3=$?
+    if [ "$rc3" -ne "0" ]; then
+        echo "## ERROR - net ads testjoin process failed ... " | tee -a ${LOG}
+        logger -p local2.crit -t AD_SETUP "Failed - Problem with net ads testjoin"
+    fi
 }
 
 # Restart all needed services for RHEL7
 rhel7_restart_daemons () {
-  echo "restarting sssd, oddjobd and sshd daemons ..."
-  systemctl enable sssd oddjobd 
-  systemctl restart oddjobd.service
-  systemctl restart sssd.service
-  systemctl restart sshd.service
-  systemctl restart network 
+    echo "restarting sssd, oddjobd and sshd daemons ..."
+    systemctl enable sssd oddjobd 
+    systemctl restart oddjobd.service
+    systemctl restart sssd.service
+    systemctl restart sshd.service
+    systemctl restart network 
 }
 
 # Restart all needed services for RHEL6
 rhel6_restart_daemons () {
-  echo "restarting sssd, oddjobd and sshd daemons ..." | tee -a ${LOG}
-  chkconfig sssd on && chkconfig oddjobd on
-  service oddjobd restart
-  service sssd restart
-  service sshd restart
-  service network restart
+    echo "restarting sssd, oddjobd and sshd daemons ..." | tee -a ${LOG}
+    chkconfig sssd on && chkconfig oddjobd on
+    service oddjobd restart
+    service sssd restart
+    service sshd restart
+    service network restart
 }
 
 # Restart all needed services for SLES12
@@ -448,14 +451,14 @@ sles12_restart_daemons () {
 
 # Configure SSHD for all servers
 configure_sshd () {
-  echo "Configuring sshd ..." | tee -a ${LOG}
-  sed -i "/AllowGroups/s/$/ $ADGRP_SSH/" $SSHDCONF
+    echo "Configuring sshd ..." | tee -a ${LOG}
+    sed -i "/AllowGroups/s/$/ $ADGRP_SSH/" $SSHDCONF
 }
 
 # Configure SUDO for RHEL6|7
 configure_sudo () {
-  echo "Configuring sudo for Admin users ..." | tee -a ${LOG}
-  echo "%$ADGRP_SUDO	ALL=(ALL)    ALL" >> $SUDO_ATOSMGMT
+    echo "Configuring sudo for Admin users ..." | tee -a ${LOG}
+    echo "%$ADGRP_SUDO	ALL=(ALL)    ALL" >> $SUDO_ATOSMGMT
 }
 
 # Function flow for RHEL6|7 servers
@@ -491,10 +494,10 @@ sles_functions_flow() {
 # Main
 
 if [ "$AD_DOMAIN" = "" -o "$AD_USER" = "" -o "$AD_SVR" = "" ]; then
-  echo "## ERROR - Insufficient information provided!!!" | tee -a ${LOG}
-  echo "## ERROR - Please populate variables and rerun!!!" | tee -a ${LOG}
-  logger -p local2.crit -t AD_SETUP "Failed - Variable values not provided"
-  exit 1
+    echo "## ERROR - Insufficient information provided!!!" | tee -a ${LOG}
+    echo "## ERROR - Please populate variables and rerun!!!" | tee -a ${LOG}
+    logger -p local2.crit -t AD_SETUP "Failed - Variable values not provided"
+    exit 1
 fi
 
 if [ "$relver" = "rhel7" ]
