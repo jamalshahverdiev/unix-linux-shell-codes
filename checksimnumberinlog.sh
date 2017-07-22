@@ -1,4 +1,3 @@
-root@ub14-1:~# cat checkuser.sh
 #!/bin/bash
 
 LOG=$(basename $0 | cut -f1 -d'.').log
