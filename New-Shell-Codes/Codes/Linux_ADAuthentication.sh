@@ -2,8 +2,6 @@
 #
 # Usage: configure_ADauth.sh <user> <domain> <managed|semimanaged|unmanaged>
 #
-# Rob Leadbeater - Atos
-#
 # v001 - 2016-12-13 - Initial Version
 # v002 - 2016-12-14 - Changed sudo section to restrict to /bin/su -
 # v003 - 2016-12-14 - Changed check for already existing sudo-entry

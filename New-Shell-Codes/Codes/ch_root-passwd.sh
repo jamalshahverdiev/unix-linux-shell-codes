@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# 2017-05-03 : initial version , michael.reichel@atos.net
-# Usage: ch_root-passwd.sh <account>
-
 SCRIPTNAME="ch_root-passwd.sh"
 V="V1.0"
 savedir="/home/c-cloudauto0001"

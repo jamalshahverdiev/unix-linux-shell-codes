@@ -1,10 +1,4 @@
 #!/bin/bash
-# check if sshd process is running
-# to be used in DPC/autodeploy environment
-#
-# olena.zhuk@atos.net
-# 
-
 
 # returns:
 # 0: success
