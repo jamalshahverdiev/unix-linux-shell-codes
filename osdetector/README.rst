@@ -10,7 +10,7 @@ List of IP address you must add to the **iplist** file.
 Usage
 =====
 
-
 In a terminal:
 .. code-block:: bash
+    
     # pkg install -y bash vim
