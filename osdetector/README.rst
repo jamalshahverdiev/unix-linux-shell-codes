@@ -14,4 +14,8 @@ In a terminal:
 
 .. code-block:: bash
     
-    # pkg install -y bash vim
+    # ./osdetector.sh
+    This script will install Apache, PHP and MySQL to all servers which are listed in the file iplist.
+    Password for root user must be same for all servers!!!
+    But you must write MySQL password at the installation process..
+    Please enter password for the MySQL root user:
