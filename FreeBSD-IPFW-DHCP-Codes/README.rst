@@ -6,12 +6,11 @@ Write or Delete IPFW and DHCP commands and restart service
 
 This folder contain the following components:
 
-* dhcp_reservate_and_add_rule.sh - Takes two arguments. Last octet of user IP and username. It configure DHCP reservation and IPFW for this user.
-* delete_dhcp_and_ipfw.sh - Takes username as argument. Then delete DHCP reservation and IPFW rules from CLI/configuration.
-* count - Counter file to increase IPFW rule number for each new user.
-* dhcpd.conf - DHCP configuration template file to test dhcp_reservate_and_add_rule.sh/delete_dhcp_and_ipfw.sh scripts.
-* ipfw.conf - IPFW configuration template file to test dhcp_reservate_and_add_rule.sh/delete_dhcp_and_ipfw.sh scripts.
-
+* **dhcp_reservate_and_add_rule.sh** - Takes two arguments. Last octet of user IP and username. It configure DHCP reservation and IPFW for this user.
+* **delete_dhcp_and_ipfw.sh** - Takes username as argument. Then delete DHCP reservation and IPFW rules from CLI/configuration.
+* **count** - Counter file to increase IPFW rule number for each new user.
+* **dhcpd.conf** - DHCP configuration template file to test **dhcp_reservate_and_add_rule.sh** and **delete_dhcp_and_ipfw.sh** scripts.
+* **ipfw.conf** - IPFW configuration template file to test **dhcp_reservate_and_add_rule.sh** and **delete_dhcp_and_ipfw.sh** scripts.
 
 
 =====
