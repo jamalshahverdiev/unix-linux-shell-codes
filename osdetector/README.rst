@@ -4,4 +4,13 @@ Multi platform (FreeBSD, Ubuntu, CentOS) script to install and configure Apache 
 
 This script supposes you have installed and configured BASH to all servers. 
 SHELL for root user is BASH on all servers and root user can remote login through ssh.
-List of IP address you must add to the iplist file.
+List of IP address you must add to the **iplist** file.
+
+=====
+Usage
+=====
+
+
+In a terminal:
+.. code-block:: bash
+    # pkg install -y bash vim
