@@ -11,6 +11,7 @@ Usage
 =====
 
 In a terminal:
+
 .. code-block:: bash
     
     # pkg install -y bash vim
