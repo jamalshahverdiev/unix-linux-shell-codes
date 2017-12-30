@@ -1,6 +1,6 @@
-**********************************************************
-Write or Delete IPFW and DHCP commands and restart service
-**********************************************************
+*************************************
+Create inventory files from templates
+*************************************
 
 .. image:: https://cdn.rawgit.com/odb/official-bash-logo/master/assets/Logos/Identity/PNG/BASH_logo-transparent-bg-color.png
 
