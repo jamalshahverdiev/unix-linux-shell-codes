@@ -1,10 +1,8 @@
-*********************
-Full Automated Nagios
-*********************
+**********************************************************
+Write or Delete IPFW and DHCP commands and restart service
+**********************************************************
 
-.. image:: https://img.shields.io/pypi/pyversions/Django.svg
-
-Python script to install/configure Nagios server and Nrpe agents to all client servers.
+.. image:: https://cdn.rawgit.com/odb/official-bash-logo/master/assets/Logos/Identity/PNG/BASH_logo-transparent-bg-color.png
 
 Program components are the following:
 
