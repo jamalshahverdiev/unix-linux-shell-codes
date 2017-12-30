@@ -4,12 +4,13 @@ Write or Delete IPFW and DHCP commands and restart service
 
 .. image:: https://cdn.rawgit.com/odb/official-bash-logo/master/assets/Logos/Identity/PNG/BASH_logo-transparent-bg-color.png
 
-Program components are the following:
+This folder contain the following components:
 
-* clients.txt - List of IP addresses for all Nagios clients.
-* nagios-clients.py - Automatic installation of Nagios Server.
-* nagios-server.py - Automatic installation of Nagios Clients.
-* run.py - Installation lunch script with an interactive menu.
+* dhcp_reservate_and_add_rule.sh - List of IP addresses for all Nagios clients.
+* delete_dhcp_and_ipfw.sh - Takes username as argument then delete DHCP reservation and IPFW rules from CLI and from configuration.
+* count - Counter file to increase IPFW rule number for each new user.
+* dhcpd.conf - DHCP configuration template file to test dhcp_reservate_and_add_rule.sh and delete_dhcp_and_ipfw.sh scripts.
+* ipfw.conf - IPFW configuration template file to test dhcp_reservate_and_add_rule.sh and delete_dhcp_and_ipfw.sh scripts.
 
 
 
