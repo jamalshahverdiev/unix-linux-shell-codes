@@ -1,23 +1,5 @@
 #!/bin/sh
 
-# 2017-03-23 , V1.0 , retrieve OS-Edition and OS-Version/Patchlevel
-#                     Tested on SLES11-SP3, SLES11-SP4, 
-#				SLES12-SP1, SLES12-SP2
-#				RedHat6.8
-#				RedHat7.2
-# 2017-03-23 , V1.1 , Output changed to JSON-Syntax
-# 		{
-# 		"osEdition" : "SuSE Linux Enterprise Server"
-# 		"osPatchLevel" :"11.4"
-# 		}
-# 2017-04-03 , V1.2 , Added RedHat7.3
-# 2017-04-07 , V1.3 , Changed output to the following
-# 		{
-# 		"os" : "SuSE Linux Enterprise Server",
-# 		"osVersion" :"11.4"
-# 		}
-# 2017-04-11 , V1.4 , Added output to Logfile incl. Version-Info
-# 2017-04-12 , V1.5 , bugfix of string-output to logfile
 V="V1.5"
 SCRIPTNAME="ca_os-release.sh"
 
