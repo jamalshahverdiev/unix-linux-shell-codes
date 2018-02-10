@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# Configure ntp
-# V1.0 , 2016-12-05
-# V1.1 , 2016-12-12 , fixed ntp-restart
-# V1.2 , 2017-03-03 , added chown-command for $logfile
-# V1.3 , 2017-03-06 , added additional log-output
 # Usage:
 # ca_ntpconfig.sh <managed|semimanaged|unmanaged> <NTPSERVER1> <NTPSERVER2> <NTPSERVER3> <NTPSERVER4>
 
