@@ -3,9 +3,6 @@
 # Script to set and increase password expiration date for entered first argument.
 #
 # Usage - update_anyuser_pass.sh <username> <base64_encoded_password>
-#
-# v001 - 2016-06-18 - Initial version
-
 # The script required is set password for entered username as first argument and password as the second argument.
 # Password life for entered username will be increased to 90 days
 # Update password expiration date: usermod -e `date -d "30 days" +"%Y-%m-%d"` ahmet
