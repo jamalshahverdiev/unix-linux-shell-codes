@@ -1,23 +1,12 @@
 #!/bin/bash
-#######################################################
+############################################################
 # Setup Active Directory integration for RHEL 6|7 and SLES12
-#
-# This script is created by the kickstart 
-#
-# v0.1beta	150424	TJH	Initial Creation
-# v0.2beta	150427	TJH/SM	Fixes
-# v0.3beta	150603  TJH	Fixes
-# v0.4beta	150622  TJH	Fixes
 # Exit code 43 means: antered argument count is less than 4
-#######################################################
-#
+############################################################
 # Variables
 
-#AD_DOMAIN="LABDEV.LOCAL"
 AD_DOMAIN=$1
-#AD_USER="Administrator"
 AD_USER=$2
-#AD_SVR="WEBDC01.LABDEV.LOCAL"
 AD_SVR=$5
 # ouvar takes argument from VRO and convert this for DC join.
 #ouvar=$(echo $4|sed 's/ou=//g; s/dc=.*//g; s/\,/ /g'|tr ' ' '\n'|tac |tr '\n' ' '|tr ' ' '/'|awk '{print substr($0, 2, length($0) - 2)}')
