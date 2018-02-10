@@ -1,12 +1,6 @@
 #!/bin/sh
 
 # Clear EventLogs / System-Log-Files
-# V1.0 , 2016-11-22
-# V1.1 , 2016-12-01 , added redirect of stderr-channel and removed /tmp-cleanup
-# V1.2 , 2016-12-12 , added to clean-up spooler, maillog and messages 
-# V1.3 , 2017-03-03 , added chown-command for $logfile
-# V1.4 , 2017-04-13 , added additional output to logfile
-# V1.5 , 2017-06-21 , added temp cleaners to the functions cleantemps_sles cleantemps_rhel
 SCRIPTNAME="ca_clear_event_logs.sh"
 V="V1.4"
 
