@@ -3,9 +3,6 @@
 # Script to leave a RHEL/SLES machine from Windows Active Directory
 #
 # Usage - Linux_ADDomainLeave.sh <ad user> <ad password (base64 encoded)>
-#
-# v001   - 2017-06-13 - Initial version - Limited Testing !
-# v001.5 - 2017-06-20 - Bug fixes CURRHOST not set and missing _ in call to tidy_smb_conf
 
 usage () {
    echo -e "Usage: $0 <ad user> <ad password (base64 encoded)>\n"
