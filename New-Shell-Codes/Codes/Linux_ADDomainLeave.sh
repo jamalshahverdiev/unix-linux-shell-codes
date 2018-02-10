@@ -3,8 +3,7 @@
 # Script to leave a RHEL/SLES machine from Windows Active Directory
 #
 # Usage - Linux_ADDomainLeave.sh <ad user> <ad password (base64 encoded)>
-#
-# v001 - 2017-06-13 - Initial version - Limited Testing !
+
 
 usage () {
    echo -e "Usage: $0 <ad user> <ad password (base64 encoded)>\n"
