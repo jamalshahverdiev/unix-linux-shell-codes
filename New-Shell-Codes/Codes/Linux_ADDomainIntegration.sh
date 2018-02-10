@@ -3,15 +3,7 @@
 # Script to join a RHEL/SLES machine to Windows Active Directory
 #
 # Usage - configure_ADintegration.sh <domain> <ad user> <ad password> <RODC join 1 or 0> [<dom01-hostname>] [<dom02-hostname>]
-#
-# v001 - 2016-12-06 - Initial version, based on UK Cloud script
-# v002 - 2016-12-07 - Modifications to support SLES (incomplete !)
-# v003 - 2016-12-08 - Change arguments to be position based for VRO
-# v004 - 2016-12-12 - Remove SSH and SUDO configuration and complete SLES
-# v005 - 2016-12-15 - Bug fix.  Missing configure_sssd from RHEL section
-# v006 - 2016-12-15 - Update password handling to cater for special characters
-# v007 - 2016-12-15 - Update server's FQDN
-# v008 - 2017-03-06 - Changed Logdir to /home/c-cloudauto0001
+
 
 usage () {
    echo -e "Usage: $0 <domain> <ad user> <ad password> <RODC join 1 or 0> [dom01-hostname] [dom02-hostname]\n"
