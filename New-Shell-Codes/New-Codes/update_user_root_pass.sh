@@ -9,7 +9,7 @@
 # And increase password life to 120 days
 # If, the entered username password is changed, then script will update the root password from 3th argument
 # update password expiration date
-# usermod -e `date -d "30 days" +"%Y-%m-%d"` ahmet
+# usermod -e `date -d "30 days" +"%Y-%m-%d"` username
 # Exit code "100" means: Argument count is not right.
 # Exit code "99" means: Entered username is not exists
 # To reset and check password use this command: passwd -w 0 -x 0 -i 0 username
