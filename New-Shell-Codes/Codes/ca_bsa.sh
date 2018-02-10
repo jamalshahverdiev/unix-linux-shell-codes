@@ -1,11 +1,5 @@
 #!/bin/sh
 
-# Note: ONE-4231 , 2016-11-21
-# ONE-5508 , 2017-02-28 , keep rscd running in semimanaged
-# Bladelogic-Agent
-#	managed|semimanaged == active
-#	unmanaged == not-active
-
 V="V1.1"
 SCRIPTNAME="ca_bsa.sh"
 MMSA=$1
