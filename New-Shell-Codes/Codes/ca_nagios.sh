@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# Note: ONE-2908 
-# 2016-11-21 : Initial Release
-# 2016-12-02 : Added to parse argument2 of NaNo-IP
-# 2017-03-03 : added chown-command for $logfile
-# 2017-03-06 : added to log MMSA-Type to Logfile
-# 2017-04-13 : V1.2 , corrected sed-commands
-
 # Nagios Monitoring
 #	managed|semimanaged == active
 #	unmanaged == not-active
