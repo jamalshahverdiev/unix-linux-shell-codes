@@ -1,14 +1,6 @@
 #!/bin/bash
 #
 # Usage: configure_ADauth.sh <user> <domain> <managed|semimanaged|unmanaged>
-#
-# v001 - 2016-12-13 - Initial Version
-# v002 - 2016-12-14 - Changed sudo section to restrict to /bin/su -
-# v003 - 2016-12-14 - Changed check for already existing sudo-entry
-# v004 - 2017-03-06 - Added Function log and redirected echo's to logfile
-# v005 - 2017-05-29 - Corrected Syntax-Error in _log-Procedure
-#
-# To Do: Check to see if entry already exists in sudo configuration doesn't work
 
 VERSION="v005"
 SCRIPTNAME="Linux_ADAuthentication.sh"
