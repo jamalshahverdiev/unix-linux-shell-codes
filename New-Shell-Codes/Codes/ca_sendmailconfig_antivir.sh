@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# ca_sendmailconfig_antivir.sh : sendmail-config and antivirus activation / check
-# V1.1 , 2016-12-05
-# V1.2 , 2017-03-03 , added chown-command for $logfile
-# V1.3 , 2017-04-03 , added Postfix for RedHat 7
-# V1.4 , 2017-05-02 , added db-renewal to reflect new server from clone
 # Usage:
 # ca_sendmailconfig_antivir.sh <managed|semimanaged|unmanaged> <Mail-Gateway-IP-addr>
 V="V1.4"
