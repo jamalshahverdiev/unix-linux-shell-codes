@@ -17,7 +17,7 @@
 #       CREATED:  05/24/2020 07:59:00 PM +04
 #      REVISION:  ---
 #===============================================================================
-
+echo "Stared time: `date +%H:%M:%S`"
 declare -A iparray
 input=$(cat source.txt)
 echo """$input""" | { while read line
@@ -36,4 +36,5 @@ echo """$input""" | { while read line
     done
 }
 
+echo "Ended time: `date +%H:%M:%S`"
 

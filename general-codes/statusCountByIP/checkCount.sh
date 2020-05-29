@@ -17,7 +17,7 @@
 #       CREATED:  05/24/2020 07:59:00 PM +04
 #      REVISION:  ---
 #===============================================================================
-
+echo "Started time: `date +%H:%M:%S`"
 input=$(cat source.txt)
 echo """$input""" | while read line
 do
@@ -30,4 +30,4 @@ do
         echo "Open state for IP $ip is repeated $openStateCount times" >> $ip.txt
     fi
 done 
-
+echo "Ended time: `date +%H:%M:%S`"
