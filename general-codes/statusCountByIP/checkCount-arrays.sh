@@ -18,16 +18,22 @@
 #      REVISION:  ---
 #===============================================================================
 
+declare -A iparray
 input=$(cat source.txt)
-echo """$input""" | while read line
-do
-    ip=$(echo $line | awk '{ print $1 }')
-    if [ ! -f $ip.txt ]
-    then
-        openStateCount=$(echo """$input""" | grep $ip | grep open | wc -l)
-        closedStateCount=$(echo """$input""" | grep $ip | grep closed | wc -l)
-        echo "Closed state for IP $ip is repeated $closedStateCount times" >> $ip.txt
-        echo "Open state for IP $ip is repeated $openStateCount times" >> $ip.txt
-    fi
-done 
+echo """$input""" | { while read line
+    do
+        if [[ ! -v iparray[$line] ]]
+        then
+            iparray+=([$line]=${iparray[$line]=1})
+        else
+            iparray+=([$line]=`expr ${iparray[$line]} + 1`)
+        fi
+    done 
+
+    for result in "${!iparray[@]}"
+    do
+        echo "Array key: $result, Array value: ${iparray[$result]}" >> retice.txt
+    done
+}
+
 
