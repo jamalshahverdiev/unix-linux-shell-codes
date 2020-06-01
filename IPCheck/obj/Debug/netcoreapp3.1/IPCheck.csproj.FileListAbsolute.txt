@@ -1,0 +1,11 @@
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\bin\Debug\netcoreapp3.1\IPCheck.exe
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\bin\Debug\netcoreapp3.1\IPCheck.deps.json
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\bin\Debug\netcoreapp3.1\IPCheck.runtimeconfig.json
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\bin\Debug\netcoreapp3.1\IPCheck.runtimeconfig.dev.json
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\bin\Debug\netcoreapp3.1\IPCheck.dll
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\bin\Debug\netcoreapp3.1\IPCheck.pdb
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\obj\Debug\netcoreapp3.1\IPCheck.csprojAssemblyReference.cache
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\obj\Debug\netcoreapp3.1\IPCheck.AssemblyInfoInputs.cache
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\obj\Debug\netcoreapp3.1\IPCheck.AssemblyInfo.cs
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\obj\Debug\netcoreapp3.1\IPCheck.dll
+C:\Users\seymurhus\source\repos\IPCheck\IPCheck\obj\Debug\netcoreapp3.1\IPCheck.pdb
