@@ -1,0 +1,1 @@
+{"name": "dev", "path": { "secret/*": {"capabilities": ["create","read","list","update","delete"]}}}
