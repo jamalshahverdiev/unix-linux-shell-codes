@@ -1,0 +1,2 @@
+- **MirrorBranchToRemoteBranches.sh** - script will sync source repo DEV branch to the destination repo DEV branches.
+- **joinToMaster.sh** - Execute script in the Jenkins Slave server with needed arguments to join to the Jenkins master server.
