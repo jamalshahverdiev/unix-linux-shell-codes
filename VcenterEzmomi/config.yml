@@ -1,0 +1,29 @@
+# config.yml                                
+# ezmomi                                    
+                                            
+# Mail setup for notifications              
+mail: true                                  
+mailserver: localhost                       
+mailfrom: jamal.shahverdiev@example.com     
+mailto: jamal.shahverdiev@example.com       
+                                            
+# vCenter connection settings               
+server: VCenterIP                     
+port: 443                                   
+username: VCenterUsername       
+password: VCenterPassword                    
+                                            
+# New VM defaults                           
+#cpus: 4                                    
+#mem: 2                                     
+domain: example                             
+dns_servers: ['10.234.100.58','8.8.4.4']          
+#template: Centos7                          
+# List your networks here                   
+networks:                                   
+  '192.168.111.0/24':                       
+     datacenter: 'Devops_ESXI'              
+     datastore: 'Templates'                 
+     cluster: 'Devops_Cluster'              
+     network: 'Templates'                   
+     gateway: '192.168.111.1'
