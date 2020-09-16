@@ -28,12 +28,12 @@ This plugin enables slaves to auto-discover nearby Jenkins master and join it au
 #### Firstly we should install java on client machines, for installing you can refer to the link shown below:
 
 
-- [Installing Java on Centos7 System](https://progit.tk/devops/java/blob/master/Centos7OpenJDK18.md)
-- [Installing Java on Debian9 System](https://progit.tk/devops/java/blob/master/Debian9OpenJDK18.md)
+- [Installing Java on Centos7 System](https://github.com/devops/java/blob/master/Centos7OpenJDK18.md)
+- [Installing Java on Debian9 System](https://github.com/devops/java/blob/master/Debian9OpenJDK18.md)
 
 #### In order to install and run swarm clients we should run the "joinToMaster.sh" bash script, the reference link has been shown below:
 
-- [joinToMaster.sh](https://progit.tk/devops/bash-codes/blob/master/jenkins_scripts/joinToMaster.sh)
+- [joinToMaster.sh](https://github.com/jamalshahverdiev/unix-linux-shell-codes/blob/master/JenkinsCodes/jenkins_scripts/joinToMaster.sh)
 
 #### As you will see, the script will accept 5 arguments:
 
