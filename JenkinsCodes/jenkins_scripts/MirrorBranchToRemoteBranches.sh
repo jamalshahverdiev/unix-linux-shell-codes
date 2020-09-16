@@ -1,13 +1,9 @@
 #!/bin/bash
 
 remotes='
-sehiyye
-bizimmarket
-absheron
-anama
-temiz_sheher
-general
-teqdimat
+remote1
+remote2
+remote3
 '
 gitDomain='progit.tk'
 branchName='dev'
