@@ -1,0 +1,16 @@
+{
+  "entry": [
+    {
+        "@name": "serviceNamePort",
+        "protocol": {
+          "changeProtocol": {
+            "port": "changePort",
+            "override": {
+              "no": []
+            }
+          }
+        }
+    }
+  ]
+}
+

@@ -1,0 +1,91 @@
+{ 
+    "entry": [
+        {
+          "@name": "ChangeRuleName",
+          "@location": "vsys",
+          "@vsys": "vsys1",
+          "rule-type": "interzone",
+          "description": "ChangeDescription",
+          "source": {
+            "member": [
+              "SourceIPaddress"
+            ]
+          },
+          "from": {
+            "member": [
+                "FromPerimeterName"
+            ]
+          },
+          "to": {
+            "member": [
+              "ToPerimeterName"
+            ]
+          },
+          "destination": {
+            "member": [
+              "destinationIPaddress"
+            ]
+          },
+          "application": {
+            "member": [
+              "applicationName"
+            ]
+          },
+          "service": {
+            "member": [
+              "destinationPortNumber"
+            ]
+          },
+          "action": "acceptOrDeny",
+          "log-end": "yes",
+          "log-start": "yes",
+          "log-setting": "ChangeLogSetting",
+          "tag": {
+            "member": [
+              "ChangeTagMember"
+            ]
+          },
+          "source-user": {
+            "member": [
+              "any"
+            ]
+          },
+          "category": {
+            "member": [
+              "any"
+            ]
+          },
+          "hip-profiles": {
+            "member": [
+              "any"
+            ]
+          },
+          "disabled": "no",
+          "profile-setting": {
+            "profiles": {
+              "virus": {
+                "member": [
+                  "default"
+                ]
+              },
+              "spyware": {
+                "member": [
+                  "default"
+                ]
+              },
+              "vulnerability": {
+                "member": [
+                  "default"
+                ]
+              },
+              "wildfire-analysis": {
+                "member": [
+                  "default"
+                ]
+              }
+            }
+          },
+          "group-tag": "ChangeGroupTag"
+        }
+    ]
+}
