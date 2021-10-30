@@ -1,6 +1,6 @@
 ##### With the `createFile.sh` we can create temporary file to check sctipt(But before that we must extract source file `tar jxf source.tar.bz2`). After taht just execute `checkCount.sh` script
 
-
+```bash
 input="source.txt"
 while IFS= read -r line
 do
@@ -13,4 +13,4 @@ do
         echo "Open state for IP $ip is repeated $openStateCount times" >> $ip.txt
     fi
 done < "$input"
-
+```
