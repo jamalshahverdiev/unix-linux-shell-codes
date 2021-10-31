@@ -14,3 +14,7 @@ do
     fi
 done < "$input"
 ```
+#### The bash way:
+```bash
+$ cat source.txt | awk '{print $1,$2}' | sort -n | uniq -c
+```
